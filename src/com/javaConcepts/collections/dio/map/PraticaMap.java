@@ -24,10 +24,12 @@ public class PraticaMap {
         System.out.println("O elemento lamborguini está presente? "+ carros.containsKey("Lamborguini"));
         System.out.println("Valor de consumo do Ford Ka: "+ carros.get("Ford Ka"));
 
+        //exibi somente as chaves do map
         System.out.println("Exiba os modelos: ");
         Set<String> modelos = carros.keySet();
         System.out.println(modelos);
 
+        //exibi os valores das chaves
         System.out.println("Exiba os consumos dos carros: ");
         Collection<Double> consumos = carros.values();
         System.out.println(consumos);
@@ -35,9 +37,11 @@ public class PraticaMap {
         System.out.println("Exiba o modelo mais econômico e seu consumo: ");
 
         Double consumoMaisEficiente = Collections.max(carros.values());
+        //Traz o conjunto de chave e valores em forma de entry
         Set<Map.Entry<String, Double>> entries = carros.entrySet();
         String modeloMaisEficiente = "";
 
+        //buscar o modelo(key) pelo valor
         for (Map.Entry<String, Double> entry : entries) {
             if (entry.getValue().equals(consumoMaisEficiente)) {
                 modeloMaisEficiente = entry.getKey();
