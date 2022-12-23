@@ -1,5 +1,6 @@
 package com.javaConcepts.collections.dio.map;
 
+import java.text.NumberFormat;
 import java.util.*;
 
 /**
@@ -56,14 +57,38 @@ public class ExercicioMap {
         Map<String, Integer> estados3 = new TreeMap<>(estados);
         System.out.println(estados3);
 
-        System.out.println( Collections.min(estados.values()));
+        Integer menorPopulacao = Collections.min(estados.values());
+        for (Map.Entry<String, Integer> entry: estados.entrySet()) {
+            if (entry.getValue().equals(menorPopulacao)){
+                System.out.println("Menor população "+entry.getKey()+"-> "+ entry.getValue());
+            }
+        }
+
+        Integer maiorPopulacao = Collections.max(estados.values());
+        for (Map.Entry<String, Integer> entry: estados.entrySet()) {
+            if (entry.getValue().equals(maiorPopulacao)){
+                System.out.println("Maior população "+entry.getKey()+"-> "+ entry.getValue());
+            }
+        }
 
         Iterator<Integer> iterator = estados.values().iterator();
         Integer somaPopulacional = 0;
         while (iterator.hasNext()){
             somaPopulacional += iterator.next();
         }
-        System.out.println("Soma populacional: "+somaPopulacional+" habitantes");
+        NumberFormat myFormat = NumberFormat.getInstance();
+        System.out.println("Soma populacional: "+ myFormat.format(somaPopulacional)+" habitantes");
+        System.out.println("Média da amostra = "+ myFormat.format(somaPopulacional/estados.size()));
+
+        Iterator<Integer> iterator2 = estados.values().iterator();
+        while (iterator2.hasNext()){
+            if(iterator2.next() < 4000000) iterator2.remove();
+        }
+        System.out.println(estados);
+
+        estados.clear();
+        System.out.println(estados.isEmpty());
+
 
     }
 
