@@ -1,13 +1,17 @@
 --inicializa os modulos do node
-npm init -y
+    npm init -y
 --instala o ts localmente
-npm install typescript -D
+    npm install typescript -D
 
 --Pesquisar mais sobre o TS Config
 https://www.typescriptlang.org/play
 
 --Criando o arquivo de configuração to typescript
-npx tsc --init
+    npx tsc --init
 
---rodar depois do script configurado
-npm run start
+{--rodar depois do script configurado com o build
+    npm run start
+ou
+--rodar depois do script configurado com o server ts
+ele já atualiza o arquivo automaticamente se alterado
+    npm run start:dev}
